@@ -202,6 +202,15 @@ export default function Page({
             >
               Custom Redirects
             </button>
+            <button
+              className="underline"
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.href = `?url=${baseUrl}/examples/count`;
+              }}
+            >
+              Count
+            </button>
           </div>
           <LoginWindow
             farcasterUser={farcasterUser}
