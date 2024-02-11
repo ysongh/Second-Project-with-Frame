@@ -51,7 +51,7 @@ export default async function Home({
   // then, when done, return next frame
   return (
     <div>
-      GM user data example. <Link href="/debug">Debug</Link>
+      GM count example. <Link href="/debug">Debug</Link>
       <FrameContainer
         pathname="/examples/count"
         postUrl="/examples/count/frames"
@@ -62,10 +62,16 @@ export default async function Home({
           <div
             style={{
               display: "flex",
-              flexDirection: "column",
+              alignItems: "center"
             }}
           >
-            Count is {state.count}
+            <img
+              src="https://images.unsplash.com/photo-1527066236128-2ff79f7b9705?q=80&w=2952&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Water"
+              style={{
+                width: "50%"
+              }} />
+            <p>Count is {state.count}</p>
           </div>
         </FrameImage>
         <FrameButton onClick={dispatch}>Count</FrameButton>
