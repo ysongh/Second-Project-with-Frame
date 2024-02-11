@@ -18,8 +18,9 @@ type State = {
 const initialState: State = { count: 0 };
 
 const reducer: FrameReducer<State> = (state, action) => {
+  const buttonIndex = action.postBody?.untrustedData.buttonIndex;
   return {
-    count: state.count + 1,
+    count: buttonIndex === 1 ? state.count + 1 : state.count - 1
   };
 };
 
@@ -74,7 +75,8 @@ export default async function Home({
             <p>Count is {state.count}</p>
           </div>
         </FrameImage>
-        <FrameButton onClick={dispatch}>Count</FrameButton>
+        <FrameButton onClick={dispatch}>Plus 1</FrameButton>
+        <FrameButton onClick={dispatch}>Minus 1</FrameButton>
       </FrameContainer>
     </div>
   );
