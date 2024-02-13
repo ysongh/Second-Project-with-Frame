@@ -20,7 +20,13 @@ const initialState: State = { count: 0 };
 const reducer: FrameReducer<State> = (state, action) => {
   const buttonIndex = action.postBody?.untrustedData.buttonIndex;
   return {
-    count: buttonIndex === 1 ? state.count + 1 : state.count - 1
+    count: buttonIndex === 1
+      ? state.count + 1
+      : buttonIndex === 2
+        ? state.count - 1
+        : buttonIndex === 3
+          ? state.count * 2
+          : state.count / 2
   };
 };
 
@@ -77,6 +83,8 @@ export default async function Home({
         </FrameImage>
         <FrameButton onClick={dispatch}>Plus 1</FrameButton>
         <FrameButton onClick={dispatch}>Minus 1</FrameButton>
+        <FrameButton onClick={dispatch}>Multiply</FrameButton>
+        <FrameButton onClick={dispatch}>Divide</FrameButton>
       </FrameContainer>
     </div>
   );
