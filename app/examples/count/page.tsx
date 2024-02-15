@@ -1,6 +1,7 @@
 import {
   FrameButton,
   FrameContainer,
+  FrameInput,
   FrameImage,
   FrameReducer,
   NextServerPageProps,
@@ -69,7 +70,7 @@ export default async function Home({
           <div
             style={{
               display: "flex",
-              alignItems: "center"
+              alignItems: "center",
             }}
           >
             <img
@@ -78,9 +79,16 @@ export default async function Home({
               style={{
                 width: "50%"
               }} />
-            <p>Count is {state.count}</p>
+            <div style={{
+              display: "flex",
+              flexDirection: "column",
+            }}>
+              <p>Count is {state.count}</p>
+              <p>{frameMessage?.inputText}</p>
+            </div>
           </div>
         </FrameImage>
+        <FrameInput text="Enter a message" />
         <FrameButton onClick={dispatch}>Plus 1</FrameButton>
         <FrameButton onClick={dispatch}>Minus 1</FrameButton>
         <FrameButton onClick={dispatch}>Multiply</FrameButton>
