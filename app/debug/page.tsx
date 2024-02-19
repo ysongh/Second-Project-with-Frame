@@ -211,6 +211,15 @@ export default function Page({
             >
               Count
             </button>
+            <button
+              className="underline"
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.href = `?url=${baseUrl}/examples/maze`;
+              }}
+            >
+              Maze
+            </button>
           </div>
           <LoginWindow
             farcasterUser={farcasterUser}
