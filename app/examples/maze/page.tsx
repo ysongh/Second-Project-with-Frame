@@ -11,6 +11,14 @@ import {
 import Link from "next/link";
 import { DEBUG_HUB_OPTIONS } from "../../debug/constants";
 
+const grid = [
+  [0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0],
+];
+
 type State = {
   x: number;
   y: number;
@@ -74,23 +82,30 @@ export default async function Home({
             style={{
               display: "flex",
               alignItems: "center",
+              flexWrap: "wrap"
             }}
           >
-            <img
-              src="https://images.unsplash.com/photo-1574390353491-92705370c72e?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWF6ZXxlbnwwfDB8MHx8fDI%3D"
-              alt="Water"
-              style={{
-                width: "50px",
-                marginTop: state.y * 20,
-                marginLeft: state.x * 20
-              }} />
-            <div style={{
+            {grid.map((r, i) => (
+              r.map((c, j) => (
+                <div
+                  key={i + "" + j}
+                  style={{
+                    background: "yellow",
+                    width: "200px",
+                    height: "100px",
+                    margin: "2px"
+                  }}>
+                  {state.y === i && state.x === j ? "X" : "-"}
+                </div>
+              ))
+            ))}
+            {/* <div style={{
               display: "flex",
               flexDirection: "column",
             }}>
               <p>X is {state.x}</p>
               <p>Y is {state.y}</p>
-            </div>
+            </div> */}
           </div>
         </FrameImage>
         <FrameButton onClick={dispatch}>Up</FrameButton>
