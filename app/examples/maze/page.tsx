@@ -12,11 +12,11 @@ import Link from "next/link";
 import { DEBUG_HUB_OPTIONS } from "../../debug/constants";
 
 const grid = [
-  [0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0],
+  [0, 1, 0, 0, 0],
+  [0, 1, 0, 1, 0],
+  [0, 1, 0, 1, 0],
+  [0, 1, 0, 1, 0],
+  [0, 0, 0, 1, 0],
 ];
 
 type State = {
@@ -90,7 +90,7 @@ export default async function Home({
                 <div
                   key={i + "" + j}
                   style={{
-                    background: "yellow",
+                    background: c === 1 ? "black" : "yellow",
                     width: "200px",
                     height: "100px",
                     margin: "2px"
